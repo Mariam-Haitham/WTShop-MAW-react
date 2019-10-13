@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #c8c8c8;
+}
+
+#app {
+  padding-left: 0;
+}
+
+.content {
+  padding: 50px;
+}
+
+.card,
+.card:hover {
+  transition: all 0.2s ease-out;
+  text-decoration: none;
+}
+
+.card:hover {
+  border-color: #800c0c;
+  color: #f00c0c;
+  cursor: pointer;
+}
+
+.card {
+  margin: 20px;
+  margin-left: 180px;
+  width: 250px;
+  height: 550px;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  margin-left: 200px;
+}
+
+.search,
+.add {
+  margin-left: 200px;
+}
