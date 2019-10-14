@@ -10,7 +10,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="form-group col-lg-6 col-12 mx-auto">
-        <div className="input-group my-3">
+        <div className="input-group my-3" style={{ width: "800px" }}>
           <input
             className="form-control"
             type="text"
