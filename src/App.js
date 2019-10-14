@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+
 import "./App.css";
+
+//components
 import Loading from "./components/Loading";
 import ItemsList from "./components/ItemsList";
 import ItemDetail from "./components/ItemDetail";
+import Signup from "./components/SignupForm";
+import NavBar from "./components/NavBar";
 
 class App extends Component {
   getView = () => {
@@ -12,6 +17,7 @@ class App extends Component {
     } else {
       return (
         <Switch>
+          <Route path="/register" component={Signup} />
           <Route path="/item/:itemID" component={ItemDetail} />
           <Route path="/items" component={ItemsList} />
           <Redirect to="/items" />
@@ -20,7 +26,12 @@ class App extends Component {
     }
   };
   render() {
-    return <div className="content col-10">{this.getView()}</div>;
+    return (
+      <div className="content col-10">
+        <NavBar />
+        {this.getView()}
+      </div>
+    );
   }
 }
 
