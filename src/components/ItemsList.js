@@ -4,18 +4,9 @@ import { connect } from "react-redux";
 // Components
 import Loading from "./Loading";
 import ItemCard from "./ItemCard";
-
-import { fetchItems } from "../redux/actions";
-
 import Searchbar from "./SearchBar";
 
 class ItemsList extends React.Component {
-  state = { collapsed: false };
-
-  componentDidMount() {
-    this.props.fetchItems();
-  }
-
   render() {
     const allItems = this.props.filteredItems.map(item => (
       <ItemCard key={item.title} item={item} />
@@ -30,18 +21,9 @@ class ItemsList extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  loading: state.rootList.loading,
   items: state.rootList.items,
-  filteredItems: state.rootList.filteredItems,
-  loading: state.rootList.loading
+  filteredItems: state.rootList.filteredItems
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchItems: () => dispatch(fetchItems())
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ItemsList);
+export default connect(mapStateToProps)(ItemsList);

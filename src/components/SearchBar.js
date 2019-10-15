@@ -26,11 +26,13 @@ class SearchBar extends Component {
     );
   }
 }
+
 const mapDispatchToProps = dispatch => {
   return {
     filterItems: query => dispatch(filterItems(query))
   };
 };
+
 export default connect(
   null,
   mapDispatchToProps

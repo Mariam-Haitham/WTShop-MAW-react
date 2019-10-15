@@ -1,5 +1,8 @@
 import * as actionTypes from "../actions/actionTypes";
 
+/**
+ * Simplify Auth State?
+ */
 const initialState = {
   user: null
 };

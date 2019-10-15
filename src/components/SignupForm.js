@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../redux/actions";
 import { connect } from "react-redux";
+
+import { auth } from "../redux/actions";
 
 class Signup extends Component {
   state = {
@@ -14,7 +15,7 @@ class Signup extends Component {
 
   handleSubmit = (event, type) => {
     event.preventDefault();
-    this.props.signup(this.state, type);
+    this.props.auth(this.state, type);
   };
 
   render() {
@@ -65,7 +66,7 @@ class Signup extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  signup: (userData, type) => dispatch(auth(userData, "register"))
+  auth: (userData, type) => dispatch(auth(userData, type))
 });
 
 export default connect(
