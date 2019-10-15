@@ -6,9 +6,6 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import { filterItems } from "../redux/actions";
 
-/**
- * Check useState example for search bar
- */
 class SearchBar extends Component {
   render() {
     return (
@@ -29,11 +26,13 @@ class SearchBar extends Component {
     );
   }
 }
+
 const mapDispatchToProps = dispatch => {
   return {
     filterItems: query => dispatch(filterItems(query))
   };
 };
+
 export default connect(
   null,
   mapDispatchToProps
