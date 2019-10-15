@@ -7,7 +7,7 @@ class ItemCard extends Component {
     return (
       <div className="col-lg-4 col-md-6 col-12">
         <div className="card" style={{ height: "20rem" }}>
-          <Link to={`/item/${item.id}`}>
+          <Link to={`/items/${item.id}`}>
             <div className="image">
               <img
                 className="card-img-top img-fluid"

@@ -8,7 +8,7 @@ export const fetchItemDetail = itemID => {
       type: actionTypes.SET_ITEM_LOADING
     });
     try {
-      const res = await axios.get(`http://127.0.0.1:8000/item/${itemID}/`);
+      const res = await axios.get(`http://127.0.0.1:8000/items/${itemID}/`);
       const item = res.data;
       dispatch({
         type: actionTypes.FETCH_ITEM_DETAIL,

@@ -19,7 +19,7 @@ class ItemDetail extends Component {
       const itemName = `${item.title}`;
       return (
         <div
-          class="card contain  bg-light "
+          className="card contain  bg-light "
           style={{
             maxWidth: 500,
             maxHeight: 500,
