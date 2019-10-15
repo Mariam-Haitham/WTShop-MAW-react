@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+/**
+ * Remove unused imports
+ */
 import "./App.css";
 
 //components
@@ -12,18 +15,19 @@ import NavBar from "./components/NavBar";
 
 class App extends Component {
   getView = () => {
-    if (this.props.loading) {
-      return <Loading />;
-    } else {
-      return (
-        <Switch>
-          <Route path="/register" component={Signup} />
-          <Route path="/items/:itemID" component={ItemDetail} />
-          <Route path="/items" component={ItemsList} />
-          <Redirect to="/items" />
-        </Switch>
-      );
-    }
+    if (this.props.loading) return <Loading />;
+
+    /**
+     * Cleaner URLs `/` instead of `/items`
+     */
+    return (
+      <Switch>
+        <Route path="/register" component={Signup} />
+        <Route path="/items/:itemID" component={ItemDetail} />
+        <Route path="/items" component={ItemsList} />
+        <Redirect to="/items" />
+      </Switch>
+    );
   };
   render() {
     return (

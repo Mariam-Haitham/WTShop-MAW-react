@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * Make it functional
+ */
 class ItemCard extends Component {
   render() {
     const item = this.props.item;

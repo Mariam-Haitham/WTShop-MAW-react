@@ -10,4 +10,8 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 
+/**
+ * Fetch Items here
+ */
+
 export default store;

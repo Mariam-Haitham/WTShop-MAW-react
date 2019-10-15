@@ -5,9 +5,12 @@ import { Redirect, Link } from "react-router-dom";
 import AuthButton from "./AuthButton";
 
 const NavBar = () => {
-  onclick = () => {
-    return <Link to="/register" />;
-  };
+  /**
+   * Don't commit dead code
+   */
+  // onclick = () => {
+  //   return <Link to="/register" />;
+  // };
   return (
     <div>
       <nav

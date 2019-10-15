@@ -9,6 +9,9 @@ import * as actionCreators from "../redux/actions/index";
 
 class ItemDetail extends Component {
   componentDidMount() {
+    /**
+     * Redundant - could be "fetched" from the list of items
+     */
     this.props.getItem(this.props.match.params.itemID);
   }
   render() {
@@ -52,6 +55,10 @@ class ItemDetail extends Component {
     }
   }
 }
+
+/**
+ * Consider using `ownProps` to filter/find item here
+ */
 const mapStateToProps = state => {
   return {
     item: state.itemState.item

@@ -10,9 +10,15 @@ import { fetchItems } from "../redux/actions";
 import Searchbar from "./SearchBar";
 
 class ItemsList extends React.Component {
+  /**
+   * Remove unused state - switch to stateless component
+   */
   state = { collapsed: false };
 
   componentDidMount() {
+    /**
+     * Fetch in the index
+     */
     this.props.fetchItems();
   }
 
