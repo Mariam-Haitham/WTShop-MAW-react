@@ -1,11 +1,10 @@
 import { FETCH_ITEMS, FILTER_ITEMS } from "./actionTypes";
-
-import axios from "axios";
+import instance from "./instance";
 
 export const fetchItems = () => {
   return async dispatch => {
     try {
-      const response = await axios.get("http://127.0.0.1:8000/items/");
+      const response = await instance.get("items/");
       const items = response.data;
       dispatch({
         type: FETCH_ITEMS,

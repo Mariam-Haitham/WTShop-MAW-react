@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Loading from "./components/Loading";
 import Signup from "./components/SignupForm";
+import Login from "./components/LoginForm";
 import ItemsList from "./components/ItemsList";
 import ItemDetail from "./components/ItemDetail";
 
@@ -15,6 +16,7 @@ class App extends Component {
     return (
       <Switch>
         <Route path="/register" component={Signup} />
+        <Route path="/login" component={Login} />
 
         <Route path="/items/:itemID" component={ItemDetail} />
         <Route path="/items" component={ItemsList} />

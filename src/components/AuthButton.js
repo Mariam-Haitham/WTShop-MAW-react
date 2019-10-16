@@ -3,18 +3,23 @@ import { Link } from "react-router-dom";
 
 // Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
-
+import { faSignOutAlt, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 const AuthButton = () => {
   return (
-    <ul className="navbar-nav ml-auto">
-      <Link to="/register" className="nav-item">
-        <span className="nav-link">
+    <>
+      <li className="navbar-nav ml-auto">
+        <Link to="/register" className="nav-item">
           <FontAwesomeIcon icon={faSignOutAlt} />
-          singup
-        </span>
-      </Link>
-    </ul>
+          Signup
+        </Link>
+      </li>
+      {/* <li className="navbar-nav ml-auto">
+        <Link to="/login" className="nav-item">
+          <FontAwesomeIcon icon={faSignInAlt} />
+          Login
+        </Link>
+      </li> */}
+    </>
   );
 };
 

@@ -1,3 +1,2 @@
 export { fetchItems, filterItems } from "./itemsList";
-
-export { auth } from "./auth";
+export { signup, login, logout, checkForExpiredToken } from "./auth";
