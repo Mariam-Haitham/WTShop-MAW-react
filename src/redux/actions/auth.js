@@ -1,37 +1,81 @@
-import { SET_CURRENT_USER } from "./actionTypes";
-
+import * as actionTypes from "./actionTypes";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import instance from "./instance";
+// import { setErrors } from "./common";
 
-const setCurrentUser = user => ({
-  type: SET_CURRENT_USER,
-  payload: user
-});
-
-const setAuthToken = token => {
+export const checkForExpiredToken = () => {
   return dispatch => {
+    // Get token
+    const token = localStorage.getItem("token");
+
     if (token) {
-      axios.defaults.headers.common.Authorization = `jwt ${token}`;
-      const decodedUser = jwt_decode(token);
-      dispatch(setCurrentUser(decodedUser));
-    } else {
-      delete axios.defaults.headers.common.Authorization;
-      dispatch(setCurrentUser());
+      const currentTime = Date.now() / 1000;
+
+      // Decode token and get user info
+      const user = jwt_decode(token);
+
+      console.log((user.exp - currentTime) / 60);
+
+      // Check token expiration
+      if (user.exp >= currentTime) {
+        // Set auth token header
+        setAuthToken(token);
+        // Set user
+        dispatch(setCurrentUser(user));
+      } else {
+        dispatch(logout());
+      }
     }
   };
 };
 
-export const auth = (userData, type) => {
+const setAuthToken = token => {
+  if (token) {
+    localStorage.setItem("token", token);
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  } else {
+    localStorage.removeItem("token");
+    delete axios.defaults.headers.common.Authorization;
+  }
+};
+
+const setCurrentUser = user => ({
+  type: actionTypes.SET_CURRENT_USER,
+  payload: user
+});
+
+export const login = (userData, history) => {
   return async dispatch => {
     try {
-      let response = await axios.post(
-        `http://127.0.0.1:8000/${type}/`,
-        userData
-      );
-      let user = await response.data;
-      dispatch(setAuthToken(user.token));
+      let response = await instance.post("login/", userData);
+      let user = response.data;
+      let decodedUser = jwt_decode(user.access);
+      setAuthToken(user.access);
+      dispatch(setCurrentUser(decodedUser));
+      history.goBack();
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
+};
+
+export const signup = (userData, history) => {
+  return async dispatch => {
+    try {
+      let response = await instance.post("register/", userData);
+      let user = response.data;
+      let decodedUser = jwt_decode(user.token);
+      setAuthToken(user.token);
+      dispatch(setCurrentUser(decodedUser));
+      history.goBack();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export const logout = () => {
+  setAuthToken();
+  return setCurrentUser();
 };

@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { signup } from "../redux/actions";
+// Actions
+import * as actionCreators from "../redux/actions";
 
-class Signup extends Component {
+class Login extends Component {
   state = {
     username: "",
     password: ""
@@ -13,19 +14,19 @@ class Signup extends Component {
   handleChange = event =>
     this.setState({ [event.target.name]: event.target.value });
 
-  handleSubmit = (event, type) => {
+  handleSubmit = event => {
     event.preventDefault();
-    this.props.signup(this.state, type);
+    this.props.login(this.state, this.props.history);
   };
 
   render() {
     const { username, password } = this.state;
-    const type = this.props.match.url.substring(1);
+
     return (
-      <div className="container">
+      <div className="col-6 ">
         <div className="card" style={{ marginLeft: 270 }}>
           <div className="card-body">
-            <form onSubmit={event => this.handleSubmit(event, type)}>
+            <form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label htmlFor="username">Username</label>
                 <input
@@ -52,10 +53,10 @@ class Signup extends Component {
               </div>
 
               <button type="submit" className="btn btn-primary">
-                Signup
+                Login
               </button>
-              <Link to="/login" className="btn btn-link my-2 my-sm-0">
-                I already have an account
+              <Link to="/register" className="btn btn-link my-2 my-sm-0">
+                Signup for an account
               </Link>
             </form>
           </div>
@@ -64,12 +65,14 @@ class Signup extends Component {
     );
   }
 }
-
-const mapDispatchToProps = dispatch => ({
-  signup: (userData, type) => dispatch(signup(userData, type))
-});
+const mapDispatchToProps = dispatch => {
+  return {
+    login: (userData, history) =>
+      dispatch(actionCreators.login(userData, history))
+  };
+};
 
 export default connect(
   null,
   mapDispatchToProps
-)(Signup);
+)(Login);
