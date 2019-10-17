@@ -13,12 +13,6 @@ const AuthButton = () => {
           Signup
         </Link>
       </li>
-      {/* <li className="navbar-nav ml-auto">
-        <Link to="/login" className="nav-item">
-          <FontAwesomeIcon icon={faSignInAlt} />
-          Login
-        </Link>
-      </li> */}
     </>
   );
 };

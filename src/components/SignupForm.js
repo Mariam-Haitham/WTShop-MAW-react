@@ -13,19 +13,19 @@ class Signup extends Component {
   handleChange = event =>
     this.setState({ [event.target.name]: event.target.value });
 
-  handleSubmit = (event, type) => {
+  handleSubmit = event => {
     event.preventDefault();
-    this.props.signup(this.state, type);
+    this.props.signup(this.state, this.props.history);
   };
 
   render() {
     const { username, password } = this.state;
-    const type = this.props.match.url.substring(1);
+
     return (
       <div className="container">
         <div className="card" style={{ marginLeft: 270 }}>
           <div className="card-body">
-            <form onSubmit={event => this.handleSubmit(event, type)}>
+            <form onSubmit={event => this.handleSubmit(event)}>
               <div className="form-group">
                 <label htmlFor="username">Username</label>
                 <input
@@ -66,7 +66,7 @@ class Signup extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  signup: (userData, type) => dispatch(signup(userData, type))
+  signup: (userData, history) => dispatch(signup(userData, history))
 });
 
 export default connect(
