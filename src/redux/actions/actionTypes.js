@@ -2,3 +2,5 @@ export const FETCH_ITEMS = "FETCH_ITEMS";
 export const FILTER_ITEMS = "FILTER_ITEMS";
 
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
+export const FETCH_PROFILE = "FETCH_PROFILE";

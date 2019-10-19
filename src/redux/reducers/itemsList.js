@@ -1,9 +1,5 @@
 import { FETCH_ITEMS, FILTER_ITEMS } from "../actions/actionTypes";
 
-/**
- * Changes for local filtering
- */
-
 const initialState = {
   items: [],
   filteredItems: [],

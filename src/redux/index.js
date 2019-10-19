@@ -12,6 +12,7 @@ const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
+
 store.dispatch(checkForExpiredToken());
 store.dispatch(fetchItems());
 
