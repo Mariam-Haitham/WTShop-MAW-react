@@ -8,6 +8,7 @@ import Signup from "./components/SignupForm";
 import Login from "./components/LoginForm";
 import ItemsList from "./components/ItemsList";
 import ItemDetail from "./components/ItemDetail";
+import Profile from "./components/Profile";
 
 class App extends Component {
   getView = () => {
@@ -17,6 +18,7 @@ class App extends Component {
       <Switch>
         <Route path="/register" component={Signup} />
         <Route path="/login" component={Login} />
+        <Route path="/profile" component={Profile} />
 
         <Route path="/items/:itemID" component={ItemDetail} />
         <Route path="/items" component={ItemsList} />
