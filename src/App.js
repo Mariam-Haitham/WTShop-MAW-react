@@ -9,6 +9,7 @@ import Login from "./components/LoginForm";
 import ItemsList from "./components/ItemsList";
 import ItemDetail from "./components/ItemDetail";
 import Profile from "./components/Profile";
+import EditProfile from "./components/EditProfile";
 
 class App extends Component {
   getView = () => {
