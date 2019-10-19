@@ -1,5 +1,4 @@
 import { FETCH_PROFILE } from "./actionTypes";
-import axios from "axios";
 
 import instance from "./instance";
 

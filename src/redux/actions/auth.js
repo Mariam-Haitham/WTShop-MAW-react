@@ -58,10 +58,7 @@ export const login = (userData, history) => {
 export const signup = (userData, history) => {
   return async dispatch => {
     try {
-      let response = await axios.post(
-        "http://127.0.0.1:8000/register/",
-        userData
-      );
+      await axios.post("http://127.0.0.1:8000/register/", userData);
       dispatch(login(userData, history));
     } catch (error) {
       console.log("signup error");

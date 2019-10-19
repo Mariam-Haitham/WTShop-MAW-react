@@ -2,20 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-//actions
-import { fetchProfile } from "../redux/actions";
-
 //components
 import Loading from "./Loading";
 import Default from "../default.jpg";
 
 class Profile extends Component {
-  componentDidMount = () => {
-    if (this.props.user) {
-      this.props.fetchProfile();
-    }
-  };
-
   render() {
     if (!this.props.user) return <Redirect to="/register" />;
 
@@ -43,7 +34,7 @@ class Profile extends Component {
                   }}
                   className="card-img-top img-fluid"
                   src={image}
-                  alt="Just an image!!"
+                  alt="Hello, it is me!"
                 />
               </div>
               <div>
@@ -87,13 +78,4 @@ const mapStateToProps = state => ({
   loading: state.rootProfile.loading
 });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchProfile: query => dispatch(fetchProfile(query))
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Profile);
+export default connect(mapStateToProps)(Profile);

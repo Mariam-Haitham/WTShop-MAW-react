@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect, Link } from "react-router-dom";
 
 // Components
 import AuthButton from "./AuthButton";
