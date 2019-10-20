@@ -11,7 +11,7 @@ function ItemCard(props) {
             <img
               className="card-img-top img-fluid"
               src={item.image}
-              alt="Just an image!!"
+              alt="Just the item"
             />
           </div>
         </Link>

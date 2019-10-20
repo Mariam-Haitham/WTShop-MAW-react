@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 // Actions
@@ -65,9 +64,6 @@ class Login extends Component {
               <button type="submit" className="btn btn-primary ">
                 Login
               </button>
-              <Link to="/register" className="btn btn-link my-2 my-sm-0">
-                Signup for an account
-              </Link>
             </form>
           </div>
         </div>

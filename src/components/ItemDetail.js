@@ -4,13 +4,10 @@ import { connect } from "react-redux";
 //components
 import Loading from "./Loading";
 
-//actions
-import * as actionCreators from "../redux/actions/index";
-
 class ItemDetail extends Component {
   render() {
     const id = this.props.match.params.itemID;
-    const item = this.props.items.find(i => i.id == id);
+    const item = this.props.items.find(i => i.id === parseInt(id));
 
     if (!item) return <Loading />;
     return (
