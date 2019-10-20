@@ -4,3 +4,7 @@ export const FILTER_ITEMS = "FILTER_ITEMS";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 
 export const FETCH_PROFILE = "FETCH_PROFILE";
+
+export const REMOVE_CART = "REMOVE_CART";
+export const ADD_CART = "ADD_CART";
+export const CHECKOUT = "CHECKOUT";

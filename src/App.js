@@ -10,6 +10,7 @@ import ItemsList from "./components/ItemsList";
 import ItemDetail from "./components/ItemDetail";
 import Profile from "./components/Profile";
 import EditProfile from "./components/EditProfile";
+import ItemCart from "./components/ItemCart/ItemCart";
 
 class App extends Component {
   getView = () => {
@@ -20,7 +21,7 @@ class App extends Component {
         <Route path="/register" component={Signup} />
         <Route path="/login" component={Login} />
         <Route path="/profile" component={Profile} />
-
+        <Route path="/checkout" component={ItemCart} />
         <Route path="/items/:itemID" component={ItemDetail} />
         <Route path="/items" component={ItemsList} />
 
@@ -28,6 +29,7 @@ class App extends Component {
       </Switch>
     );
   };
+
   render() {
     return (
       <div className="content col-10">
