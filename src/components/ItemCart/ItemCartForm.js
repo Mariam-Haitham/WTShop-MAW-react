@@ -5,8 +5,18 @@ import { Container, Row, Col } from "reactstrap";
 import { removeCart } from "../../redux/actions";
 
 class ItemCartForm extends Component {
+  Total = cart => {
+    const total = cart.reduce((counter, item) => counter + item.item.price, 0);
+
+    if (total) {
+      return total;
+    }
+    return 0;
+  };
   render() {
     const { cartItem } = this.props;
+    console.log("I'M HEEEEREEEE");
+    console.log(this.props.cart);
     return (
       <Container>
         <Row style={{ color: "black" }}>
@@ -24,6 +34,7 @@ class ItemCartForm extends Component {
             </button>
           </Col>
         </Row>
+        <h1 style={{ color: "black" }}>Total:${this.Total(this.props.cart)}</h1>
       </Container>
     );
   }
