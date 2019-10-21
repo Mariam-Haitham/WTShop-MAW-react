@@ -23,6 +23,7 @@ class ItemCart extends Component {
       <div className="card text-white bg-light container mt-5">
         {cartItems}
         <button full danger onClick={() => this.props.checkout()}>
+          {cart.total}
           <p>Checkout</p>
         </button>
       </div>
