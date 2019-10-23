@@ -1,4 +1,4 @@
-import { FETCH_PROFILE } from "../actions/actionTypes";
+import { FETCH_PROFILE, EDIT_PROFILE } from "../actions/actionTypes";
 
 const initialState = {
   profile: [],
@@ -8,6 +8,12 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case FETCH_PROFILE:
+      return {
+        ...state,
+        profile: action.payload,
+        loading: false
+      };
+    case EDIT_PROFILE:
       return {
         ...state,
         profile: action.payload,

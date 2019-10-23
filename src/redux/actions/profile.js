@@ -1,4 +1,4 @@
-import { FETCH_PROFILE } from "./actionTypes";
+import { FETCH_PROFILE, EDIT_PROFILE } from "./actionTypes";
 
 import instance from "./instance";
 
@@ -14,6 +14,22 @@ export const fetchProfile = () => {
     } catch (error) {
       console.log("fetch profile error");
       console.error(error);
+    }
+  };
+};
+
+export const editProfile = newProfile => {
+  return async dispatch => {
+    try {
+      const response = await instance.put("profile/", newProfile);
+      const updatedProfile = response.data;
+      dispatch({
+        type: EDIT_PROFILE,
+        payload: updatedProfile
+      });
+    } catch (error) {
+      console.log("edit profile error");
+      console.error(error.response.data);
     }
   };
 };

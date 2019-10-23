@@ -62,12 +62,12 @@ export const signup = (userData, history) => {
       dispatch(login(userData, history));
     } catch (error) {
       console.log("signup error");
-      console.error(error);
+      console.error(error.response.data);
     }
   };
 };
 
-export const logout = () => {
+export const logout = history => {
   setAuthToken();
   return setCurrentUser();
 };
