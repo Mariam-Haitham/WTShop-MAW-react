@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // Fontawesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+
 const AuthButton = () => {
   return (
     <>

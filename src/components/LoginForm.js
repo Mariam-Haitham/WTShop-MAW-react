@@ -1,8 +1,8 @@
-import React, { Component } from "react";
 import { connect } from "react-redux";
+import React, { Component } from "react";
 
-// Actions
-import * as actionCreators from "../redux/actions";
+//actions
+import { login } from "../redux/actions";
 
 class Login extends Component {
   state = {
@@ -73,8 +73,7 @@ class Login extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    login: (userData, history) =>
-      dispatch(actionCreators.login(userData, history))
+    login: (userData, history) => dispatch(login(userData, history))
   };
 };
 

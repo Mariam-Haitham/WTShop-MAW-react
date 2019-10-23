@@ -1,10 +1,10 @@
-import React, { Component } from "react";
 import { connect } from "react-redux";
+import React, { Component } from "react";
 
 // Component
 import ItemCartForm from "./ItemCartForm";
 
-//Actions
+//actions
 import { checkout } from "../../redux/actions";
 
 class ItemCart extends Component {
@@ -32,7 +32,7 @@ class ItemCart extends Component {
 }
 
 const mapStateToProps = state => ({
-  cart: state.cartState.cart
+  cart: state.rootCart.cart
 });
 
 const mapDispatchToProps = dispatch => {
