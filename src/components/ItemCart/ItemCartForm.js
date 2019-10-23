@@ -1,7 +1,8 @@
-import React, { Component } from "react";
 import { connect } from "react-redux";
+import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
-//Actions
+
+//actions
 import { removeCart } from "../../redux/actions";
 
 class ItemCartForm extends Component {
@@ -40,7 +41,7 @@ class ItemCartForm extends Component {
   }
 }
 const mapStateToProps = state => ({
-  cart: state.cartState.cart
+  cart: state.rootCart.cart
 });
 
 const mapDispatchToProps = dispatch => {

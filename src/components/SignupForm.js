@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import React, { Component } from "react";
 
+//actions
 import { signup } from "../redux/actions";
 
 class Signup extends Component {
@@ -35,8 +36,7 @@ class Signup extends Component {
           }}
         >
           <div className="card-body">
-
-            <form onSubmit={event => this.handleSubmit(event, type)}>
+            <form onSubmit={event => this.handleSubmit(event)}>
               <div className="form-group my-3">
                 <label htmlFor="username">Username</label>
                 <input

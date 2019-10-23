@@ -1,7 +1,9 @@
 import { REMOVE_CART, ADD_CART, CHECKOUT } from "../actions/actionTypes";
+
 const initialState = {
   cart: []
 };
+
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case REMOVE_CART:

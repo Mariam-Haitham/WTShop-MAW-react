@@ -1,6 +1,9 @@
-import React, { Component } from "react";
 import { connect } from "react-redux";
+import React, { Component } from "react";
+
+//actions
 import { addCart } from "../redux/actions";
+
 //components
 import Loading from "./Loading";
 import CartButton from "./ItemCart/CartButton";

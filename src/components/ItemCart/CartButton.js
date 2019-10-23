@@ -1,6 +1,7 @@
-import React, { Component } from "react";
 import { connect } from "react-redux";
+import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
+
 class CartButton extends Component {
   render() {
     return (
@@ -20,7 +21,7 @@ class CartButton extends Component {
 }
 
 const mapStateToProps = state => ({
-  cart: state.cartState.cart
+  cart: state.rootCart.cart
 });
 
 export default withRouter(connect(mapStateToProps)(CartButton));
