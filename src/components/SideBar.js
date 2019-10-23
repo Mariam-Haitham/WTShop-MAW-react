@@ -10,9 +10,9 @@ class SideBar extends Component {
         className="navbar navbar-light green lighten-3 "
         style={{ width: 1280, marginLeft: -15 }}
       >
-        <a className="navbar-brand" href="#">
+        <Link to="/items" className="nav-brand" style={{ color: "black" }}>
           Green House
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler toggler-example"

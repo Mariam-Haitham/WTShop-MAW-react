@@ -49,7 +49,7 @@ class EditProfile extends Component {
     if (this.props.loading) return <Loading />;
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 my-5">
           <div className="form-group">
             <label>First Name</label>
             <input
