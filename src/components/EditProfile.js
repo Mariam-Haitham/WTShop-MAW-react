@@ -1,51 +1,138 @@
-// import React from "react";
-// import InlineEdit from "react-edit-inline";
+import { connect } from "react-redux";
+import React, { Component } from "react";
 
-// class EditProfile extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.dataChanged = this.dataChanged.bind(this);
-//     this.state = {
-//       message: "ReactInline demo"
-//     };
-//   }
+//actions
+import { editProfile, fetchProfile } from "../redux/actions";
 
-//   dataChanged(data) {
-//     // data = { description: "New validated text comes here" }
-//     // Update your model from here
-//     console.log(data);
-//     this.setState({ ...data });
-//   }
+//components
+import Loading from "./Loading";
 
-//   customValidateText(text) {
-//     return text.length > 0 && text.length < 64;
-//   }
+class EditProfile extends Component {
+  state = {
+    user: { first_name: "", last_name: "", email: "" },
+    number: "",
+    bio: ""
+  };
 
-//   render() {
-//     return (
-//       <div>
-//         <h2>{this.state.message}</h2>
-//         <span>Edit me: </span>
-//         <InlineEdit
-//           validate={this.customValidateText}
-//           activeClassName="editing"
-//           text={this.state.message}
-//           paramName="message"
-//           change={this.dataChanged}
-//           style={{
-//             backgroundColor: "yellow",
-//             minWidth: 150,
-//             display: "inline-block",
-//             margin: 0,
-//             padding: 0,
-//             fontSize: 15,
-//             outline: 0,
-//             border: 0
-//           }}
-//         />
-//       </div>
-//     );
-//   }
-// }
+  componentDidMount = async () => {
+    await this.props.fetchProfile();
+    let profileInfo = this.props.profile;
+    this.setState({
+      user: {
+        first_name: profileInfo.user.first_name,
+        last_name: profileInfo.user.last_name,
+        email: profileInfo.user.email
+      },
+      number: profileInfo.number,
+      bio: profileInfo.bio
+    });
+    console.log(this.state);
+  };
 
-// export default EditProfile;
+  handleChange = event => {
+    let name = event.target.name;
+    let value = event.target.value;
+    if (name === "first_name" || name === "last_name" || name === "email") {
+      let user = { ...this.state.user };
+      user[name] = value;
+      this.setState({ user });
+    } else this.setState({ [name]: value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log(this.state);
+    this.props.editProfile(this.state);
+  };
+
+  render() {
+    if (this.props.loading) return <Loading />;
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <div className="input-group mb-3">
+          <div className="form-group">
+            <label>First Name</label>
+            <input
+              type="text"
+              className="form-control"
+              name="first_name"
+              value={this.state.user.first_name}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+        <div className="input-group mb-3">
+          <div className="form-group">
+            <label>Last Name</label>
+            <input
+              type="text"
+              className="form-control"
+              name="last_name"
+              value={this.state.user.last_name}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+        <div className="input-group mb-3">
+          <div className="form-group">
+            <label>Email</label>
+            <input
+              type="text"
+              className="form-control"
+              name="email"
+              value={this.state.user.email}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+        <div className="input-group mb-3">
+          <div className="form-group">
+            <label>Phone Number</label>
+            <input
+              type="text"
+              className="form-control"
+              name="number"
+              value={this.state.number}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+        <div className="input-group mb-3">
+          <div className="form-group">
+            <label>Bio</label>
+            <input
+              type="text"
+              className="form-control"
+              name="bio"
+              value={this.state.bio}
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+        <div className="input-group mb-3">
+          <div className="form-group">
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  user: state.rootAuth.user,
+  profile: state.rootProfile.profile,
+  loading: state.rootProfile.loading
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchProfile: () => dispatch(fetchProfile()),
+  editProfile: newProfile => dispatch(editProfile(newProfile))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EditProfile);

@@ -20,8 +20,11 @@ class App extends Component {
       <Switch>
         <Route path="/register" component={Signup} />
         <Route path="/login" component={Login} />
+      
         <Route path="/profile" component={Profile} />
+        <Route path="/editProfile" component={EditProfile} />
         <Route path="/checkout" component={ItemCart} />
+
         <Route path="/items/:itemID" component={ItemDetail} />
         <Route path="/items" component={ItemsList} />
 
