@@ -8,6 +8,17 @@ import ItemCartForm from "./ItemCartForm";
 import { checkout } from "../../redux/actions";
 
 class ItemCart extends Component {
+  Total = cart => {
+    const total = cart.reduce(
+      (counter, item) => parseInt(counter) + parseInt(item.item.price),
+      0
+    );
+
+    if (total) {
+      return total;
+    }
+    return 0;
+  };
   render() {
     console.log("cart");
     console.log(this.props.cart);
@@ -20,10 +31,15 @@ class ItemCart extends Component {
     }
 
     return (
-      <div className="card text-white bg-light container mt-5">
+      <div
+        className="card text-white bg-light container mt-5 "
+        style={{ marginLeft: 110 }}
+      >
         {cartItems}
         <button full danger onClick={() => this.props.checkout()}>
-          {cart.total}
+          <h1 style={{ color: "black" }}>
+            Total:${this.Total(this.props.cart)}
+          </h1>
           <p>Checkout</p>
         </button>
       </div>

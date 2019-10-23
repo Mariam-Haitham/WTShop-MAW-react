@@ -12,9 +12,13 @@ class ItemsList extends React.Component {
       <ItemCard key={item.title} item={item} />
     ));
     return (
-      <div className="container">
+      <div className="container my-5 mx-5">
         <Searchbar />
-        <div className="row">{this.props.loading ? <Loading /> : allItems}</div>
+        <div className="col-12 my-5 center mx-5">
+          <div className="row">
+            {this.props.loading ? <Loading /> : allItems}
+          </div>
+        </div>
       </div>
     );
   }
