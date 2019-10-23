@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function ItemCard(props) {
   const item = props.item;
   return (
-    <div className="col-lg-4 col-md-6 col-12">
+    <div className="col-lg-4 col-md-6 col-12 my-5">
       <div className="card" style={{ height: "20rem" }}>
         <Link to={`/items/${item.id}`}>
           <div className="image">

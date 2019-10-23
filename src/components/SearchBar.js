@@ -10,8 +10,11 @@ import { filterItems } from "../redux/actions";
 class SearchBar extends Component {
   render() {
     return (
-      <div className="form-group col-lg-6 col-12 mx-auto">
-        <div className="input-group my-3" style={{ width: "800px" }}>
+      <div className="form-group col-lg-6 col-12 mx-5 my-5">
+        <div
+          className="input-group my-5"
+          style={{ width: "800px", marginLeft: 100 }}
+        >
           <input
             className="form-control"
             type="text"

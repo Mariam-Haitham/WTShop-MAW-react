@@ -48,7 +48,7 @@ export const login = (userData, history) => {
       let decodedUser = jwt_decode(user.access);
       setAuthToken(user.access);
       dispatch(setCurrentUser(decodedUser));
-      history.goBack();
+      history.replace("/items");
     } catch (error) {
       console.log("login error");
       console.error(error);
@@ -70,5 +70,6 @@ export const signup = (userData, history) => {
 
 export const logout = history => {
   setAuthToken();
+
   return setCurrentUser();
 };

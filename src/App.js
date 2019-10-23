@@ -11,6 +11,7 @@ import ItemsList from "./components/ItemsList";
 import ItemDetail from "./components/ItemDetail";
 import EditProfile from "./components/EditProfile";
 import ItemCart from "./components/ItemCart/ItemCart";
+import SideBar from "./components/SideBar";
 
 class App extends Component {
   getView = () => {
@@ -36,7 +37,8 @@ class App extends Component {
   render() {
     return (
       <div className="content col-10">
-        <NavBar />
+        {/* <NavBar /> */}
+        <SideBar />
         {this.getView()}
       </div>
     );
