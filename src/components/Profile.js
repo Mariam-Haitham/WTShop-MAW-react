@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 //components
 import Loading from "./Loading";
@@ -29,13 +29,14 @@ class Profile extends Component {
 
     profileInfo.past_orders.map(order => {
       pastOrders.push(
-        <li
-          key={order.id}
-          className="list-group-item d-flex justify-content-between align-items-center"
-        >
-          {order.date}
-          <span className="badge badge-primary badge-pill">{order.total}</span>
-        </li>
+        <Link to={`/orders/${order.id}`} key={order.id}>
+          <li className="list-group-item d-flex justify-content-between align-items-center">
+            {order.date}
+            <span className="badge badge-primary badge-pill">
+              {order.total}
+            </span>
+          </li>
+        </Link>
       );
     });
 
