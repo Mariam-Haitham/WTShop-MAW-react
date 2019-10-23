@@ -23,10 +23,20 @@ class Login extends Component {
 
     return (
       <div className="col-6 ">
-        <div className="card" style={{ marginLeft: 270 }}>
+        <div
+          className="card"
+          style={{
+            width: 900,
+            marginLeft: 170,
+            backgroundImage:
+              "url(https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: 900
+          }}
+        >
           <div className="card-body">
             <form onSubmit={this.handleSubmit}>
-              <div className="form-group">
+              <div className="form-group my-3">
                 <label htmlFor="username">Username</label>
                 <input
                   type="text"
@@ -51,7 +61,7 @@ class Login extends Component {
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary ">
                 Login
               </button>
             </form>

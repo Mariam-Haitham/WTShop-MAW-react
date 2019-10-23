@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import { addCart } from "../redux/actions";
 //components
 import Loading from "./Loading";
+import CartButton from "./ItemCart/CartButton";
 
 class ItemDetail extends Component {
   render() {
@@ -39,6 +40,14 @@ class ItemDetail extends Component {
           </p>
           <p className="card-text">Price: {item.price}</p>
           <p className="card-text">quantity available: {item.quantity}</p>
+          <button
+            full
+            danger
+            onClick={() => this.props.addCart({ item, quantity: 1 })}
+          >
+            Add To Cart
+          </button>
+          <CartButton />
         </div>
       </div>
     );
@@ -50,5 +59,13 @@ const mapStateToProps = state => {
     items: state.rootList.items
   };
 };
+const mapDispatchToProps = dispatch => {
+  return {
+    addCart: item => dispatch(addCart(item))
+  };
+};
 
-export default connect(mapStateToProps)(ItemDetail);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ItemDetail);
