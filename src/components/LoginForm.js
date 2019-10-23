@@ -22,21 +22,30 @@ class Login extends Component {
     const { username, password } = this.state;
 
     return (
-      <div className="col-6 ">
+      <div className="container ">
         <div
-          className="card"
+          className=" my-3"
           style={{
-            width: 900,
-            marginLeft: 170,
             backgroundImage:
-              "url(https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)",
+              "url(https://i.ibb.co/pfkbqzx/Green-House-Logo.png  )",
             backgroundRepeat: "no-repeat",
-            backgroundSize: 900
+            backgroundSize: 200,
+            width: 600,
+            height: 500,
+            marginLeft: 500
+          }}
+        ></div>
+        <div
+          className="card "
+          style={{
+            width: 500,
+            marginLeft: 350,
+            marginTop: -250
           }}
         >
           <div className="card-body">
             <form onSubmit={this.handleSubmit}>
-              <div className="form-group my-3">
+              <div className="form-group ">
                 <label htmlFor="username">Username</label>
                 <input
                   type="text"

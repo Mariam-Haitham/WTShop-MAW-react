@@ -12,6 +12,8 @@ import ItemDetail from "./components/ItemDetail";
 import EditProfile from "./components/EditProfile";
 import ItemCart from "./components/ItemCart/ItemCart";
 import OrderDetail from "./components/OrderDetail";
+import SideBar from "./components/SideBar";
+
 
 class App extends Component {
   getView = () => {
@@ -38,7 +40,7 @@ class App extends Component {
   render() {
     return (
       <div className="content col-10">
-        <NavBar />
+        <SideBar />
         {this.getView()}
       </div>
     );

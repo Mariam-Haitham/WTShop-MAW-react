@@ -9,7 +9,7 @@ const NavBar = () => {
       <nav
         className="navbar navbar-expand-lg navbar-dark fixed-top"
         id="mainNav"
-        style={{ backgroundColor: "#201612", height: "40px" }}
+        style={{ backgroundColor: "#132635d9", height: "40px" }}
       >
         <div>
           <AuthButton />

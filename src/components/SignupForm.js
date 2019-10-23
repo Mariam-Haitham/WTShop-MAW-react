@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import React, { Component } from "react";
+import greenHouse from "../../src/Green.png";
 
 //actions
 import { signup } from "../redux/actions";
@@ -25,19 +26,31 @@ class Signup extends Component {
     return (
       <div className="container">
         <div
-          className="card"
+          className=" my-3"
           style={{
-            width: 900,
-            marginLeft: 170,
             backgroundImage:
-              "url(https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)",
+              "url(https://i.ibb.co/pfkbqzx/Green-House-Logo.png  )",
             backgroundRepeat: "no-repeat",
-            backgroundSize: 900
+            backgroundSize: 200,
+            width: 600,
+            height: 500,
+            marginLeft: 500
+          }}
+        ></div>
+        <div
+          className="card "
+          style={{
+            width: 500,
+            marginLeft: 350,
+            marginTop: -250
           }}
         >
           <div className="card-body">
+            <p style={{ color: "blue", textSize: "40" }}>
+              Create a new account
+            </p>
             <form onSubmit={event => this.handleSubmit(event)}>
-              <div className="form-group my-3">
+              <div className="form-group ">
                 <label htmlFor="username">Username</label>
                 <input
                   type="text"
