@@ -41,13 +41,6 @@ class SideBar extends Component {
             )}
 
             <Link
-              to="/items"
-              className="nav-item"
-              style={{ color: "black", marginLeft: 15 }}
-            >
-              Item list
-            </Link>
-            <Link
               to="/profile"
               className="nav-item"
               style={{ color: "black", marginLeft: 15 }}
