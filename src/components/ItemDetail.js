@@ -33,7 +33,6 @@ class ItemDetail extends Component {
                   description: <br></br> {item.description}
                 </p>
                 <p className="card-text">Price: {item.price}</p>
-                <p className="card-text">quantity available: {item.quantity}</p>
                 <button
                   full
                   danger

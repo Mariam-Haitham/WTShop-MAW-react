@@ -4,6 +4,11 @@ import { withRouter, Link } from "react-router-dom";
 
 class CartButton extends Component {
   render() {
+    const id = this.props.match.params.itemID;
+    const item = this.props.cart.find(i => i.item.id === parseInt(id));
+    let quantity = 0;
+    if (item) quantity = item.quantity;
+
     return (
       <div>
         <Link to="/checkout" style={{ color: "green" }}>
@@ -14,6 +19,7 @@ class CartButton extends Component {
             alt="..."
             style={{ width: 60, height: 45 }}
           ></img>
+          {quantity}
         </Link>
       </div>
     );
